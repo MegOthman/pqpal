@@ -5,23 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>PQ Pal</title>
   <style>
+    /* Reset and layout */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
       font-family: Arial, sans-serif;
-      margin: 0;
+      background: #f0f4f8;
+      min-height: 100vh;
+      position: relative;
       padding: 20px;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
-      min-height: 100vh;
-      background: #f0f4f8;
       text-align: center;
-      box-sizing: border-box;
     }
 
+    /* Top left logo */
+    .top-bar {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
+
+    .logo {
+      width: 100px;
+      max-width: 20vw;
+      height: auto;
+    }
+
+    /* Title and tagline */
     h1 {
       font-size: 3rem;
       color: #2c3e50;
+      margin-top: 60px; /* Space below logo */
       margin-bottom: 10px;
     }
 
@@ -31,6 +51,7 @@
       margin-bottom: 20px;
     }
 
+    /* Image with hover zoom */
     .zoom-image {
       width: 800px;
       max-width: 90%;
@@ -42,9 +63,10 @@
     }
 
     .zoom-image:hover {
-      transform: scale(1.1);
+      transform: scale(1.05);
     }
 
+    /* Fullscreen overlay */
     .overlay {
       display: none;
       position: fixed;
@@ -84,7 +106,6 @@
       border-radius: 50%;
       cursor: pointer;
       font-weight: bold;
-      text-align: center;
       transition: background-color 0.2s ease;
     }
 
@@ -101,10 +122,16 @@
     @media (max-width: 600px) {
       h1 {
         font-size: 2rem;
+        margin-top: 80px;
       }
 
       p {
         font-size: 1.2rem;
+      }
+
+      .logo {
+        max-width: 25vw;
+        width: auto;
       }
 
       .close-btn {
@@ -118,37 +145,42 @@
   </style>
 </head>
 <body>
+
+  <!-- Logo -->
   <header class="top-bar">
-  <img src="mddi-logo.png" alt="MDDI logo" class="logo" />
-</header>
-  
+    <img src="mddi-logo.png" alt="MDDI Logo" class="logo" />
+  </header>
+
+  <!-- Title and Tagline -->
   <h1>PQ Pal</h1>
   <p>Your digital guide to PQ procedures</p>
 
+  <!-- Main image -->
   <img src="broadtimeline.png" alt="Broad Timeline" class="zoom-image" onclick="openImage()" />
 
+  <!-- Fullscreen overlay -->
   <div class="overlay" id="imageOverlay">
     <button class="close-btn" onclick="closeImage()">×</button>
     <img src="broadtimeline.png" alt="Broad Timeline Enlarged" />
   </div>
 
+  <!-- Script for fullscreen logic -->
   <script>
     function openImage() {
-      const overlay = document.getElementById("imageOverlay");
-      overlay.classList.add("show");
+      document.getElementById("imageOverlay").classList.add("show");
     }
 
     function closeImage() {
-      const overlay = document.getElementById("imageOverlay");
-      overlay.classList.remove("show");
+      document.getElementById("imageOverlay").classList.remove("show");
     }
 
-    // Keyboard support: Close overlay on Escape key
+    // Close fullscreen with Escape key
     document.addEventListener("keydown", function (event) {
       if (event.key === "Escape") {
         closeImage();
       }
     });
   </script>
+
 </body>
 </html>
