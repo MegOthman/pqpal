@@ -164,11 +164,18 @@
 </div>
 
 
-<section class="box-row">
-  <div class="simple-box">Box A</div>
-  <div class="simple-box">Box B</div>
-  <div class="simple-box">Box C</div>
-  <div class="simple-box">Box D</div>
+<section class="box-button-section">
+  <div class="box-buttons">
+    <button class="box-button" onclick="showContent('a')">Box A</button>
+    <button class="box-button" onclick="showContent('b')">Box B</button>
+    <button class="box-button" onclick="showContent('c')">Box C</button>
+    <button class="box-button" onclick="showContent('d')">Box D</button>
+  </div>
+
+  <div id="content-a" class="box-content">This is the content for Box A.</div>
+  <div id="content-b" class="box-content">This is the content for Box B.</div>
+  <div id="content-c" class="box-content">This is the content for Box C.</div>
+  <div id="content-d" class="box-content">This is the content for Box D.</div>
 </section>
 
 

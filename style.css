@@ -74,22 +74,44 @@ body {
 }
 
 
-.box-row {
+.box-button-section {
+  margin-top: 40px;
+  width: 100%;
+  max-width: 900px;
+}
+
+.box-buttons {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  margin-top: 40px;
-  justify-content: space-between;
+  justify-content: center;
+  margin-bottom: 30px;
 }
 
-.simple-box {
+.box-button {
   flex: 1 1 calc(25% - 20px);
-  min-width: 200px;
-  background-color: #f0f0f0;
+  min-width: 120px;
+  background-color: #3498db;
+  color: white;
+  border: none;
   border-radius: 12px;
-  padding: 40px 20px;
-  text-align: center;
-  font-size: 1.25rem;
-  font-weight: 600;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.box-button:hover {
+  background-color: #2980b9;
+}
+
+.box-content {
+  display: none;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  font-size: 1.1rem;
+  margin-top: 10px;
 }

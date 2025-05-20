@@ -1,17 +1,11 @@
 <script>
-  function showTabs(index) {
-    // Hide all tab sets
-    document.querySelectorAll('.tabs').forEach(t => t.style.display = 'none');
-    // Show selected
-    document.getElementById(`tabs-${index}`).style.display = 'block';
-  }
+  function showContent(boxId) {
+    const allContents = document.querySelectorAll('.box-content');
+    allContents.forEach(content => content.style.display = 'none');
 
-  function showTabContent(boxIndex, tabIndex) {
-    // Hide all content in this tab set
-    for (let i = 0; i < 4; i++) {
-      document.getElementById(`tab-${boxIndex}-${i}`).style.display = 'none';
+    const selected = document.getElementById(`content-${boxId}`);
+    if (selected) {
+      selected.style.display = 'block';
     }
-    // Show selected
-    document.getElementById(`tab-${boxIndex}-${tabIndex}`).style.display = 'block';
   }
 </script>
