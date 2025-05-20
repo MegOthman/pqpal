@@ -52,7 +52,7 @@ body {
 }
 
 .image-caption {
-  margin-top: 30px; /* Increased spacing between image and paragraph */
+  margin-top: 60px; /* Increased spacing between image and paragraph */
   text-align: justify;
   font-size: 1rem;
   color: #333;
