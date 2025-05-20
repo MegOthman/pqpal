@@ -42,16 +42,30 @@ body {
   align-items: center;
   text-align: center;
 }
-.image-section {
+
+.image-container {
   max-width: 800px;
   width: 90%;
   margin: 20px auto 0;
+  text-align: center;
+  padding: 0 20px;
 }
 
 .image-caption {
+  margin-top: 30px; /* Increased spacing between image and paragraph */
   text-align: justify;
-  margin-top: 15px;
   font-size: 1rem;
-  line-height: 1.6;
   color: #333;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 480px) {
+  .image-container {
+    padding: 0 15px;
+  }
+
+  .image-caption {
+    font-size: 0.9rem; /* Smaller font size on mobile */
+    margin-top: 25px;  /* Optional: adjust spacing slightly on mobile */
+  }
 }
