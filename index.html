@@ -164,14 +164,15 @@
 </div>
 
 
-<section class="box-button-section">
-  <div class="box-buttons">
-    <button class="box-button" onclick="showContent('a')">PQ Approach</button>
-    <button class="box-button" onclick="showContent('b')">Prepare PQ Reply</button>
-    <button class="box-button" onclick="showContent('c')">Submit PQ Reply for Clearance</button>
-    <button class="box-button" onclick="showContent('d')">Parliament Sitting</button>
-  </div>
-</section>
+<div class="box-container">
+  <div class="big-box" onclick="showContent('boxA')">PQ Approach</div>
+  <div class="big-box" onclick="showContent('boxB')">Prepare PQ Reply</div>
+  <div class="big-box" onclick="showContent('boxC')">Submit PQ Reply for Clearance</div>
+  <div class="big-box" onclick="showContent('boxD')">Parliament Sitting</div>
+</div>
+
+<!-- Placeholder for displaying clicked content -->
+<div id="box-content" class="box-content"></div>
 
 
   <!-- Fullscreen overlay -->

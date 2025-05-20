@@ -1,11 +1,14 @@
 <script>
   function showContent(boxId) {
-    const allContents = document.querySelectorAll('.box-content');
-    allContents.forEach(content => content.style.display = 'none');
-
-    const selected = document.getElementById(`content-${boxId}`);
-    if (selected) {
-      selected.style.display = 'block';
-    }
+    const content = {
+      boxA: "This is content for Box A.",
+      boxB: "This is content for Box B.",
+      boxC: "This is content for Box C.",
+      boxD: "This is content for Box D.",
+    };
+    
+    const display = document.getElementById('box-content');
+    display.innerHTML = content[boxId];
+    display.style.display = 'block';
   }
 </script>
