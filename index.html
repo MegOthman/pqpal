@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>PQ Pal</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
+      padding: 20px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      min-height: 100vh;
       background: #f0f4f8;
       text-align: center;
+      box-sizing: border-box;
     }
 
     h1 {
@@ -27,11 +28,127 @@
     p {
       font-size: 1.5rem;
       color: #34495e;
+      margin-bottom: 20px;
+    }
+
+    .zoom-image {
+      width: 800px;
+      max-width: 90%;
+      height: auto;
+      margin-top: 20px;
+      transition: transform 0.3s ease;
+      cursor: zoom-in;
+      border-radius: 8px;
+    }
+
+    .zoom-image:hover {
+      transform: scale(1.1);
+    }
+
+    .overlay {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      animation: fadeIn 0.3s ease forwards;
+    }
+
+    .overlay.show {
+      display: block;
+    }
+
+    .overlay img {
+      display: block;
+      max-width: 90%;
+      max-height: 80%;
+      margin: 5% auto;
+      border-radius: 10px;
+      box-shadow: 0 0 20px #000;
+      cursor: zoom-out;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 1.5rem;
+      width: 40px;
+      height: 40px;
+      background-color: #f1c40f;
+      color: #2c3e50;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      font-weight: bold;
+      text-align: center;
+      transition: background-color 0.2s ease;
+    }
+
+    .close-btn:hover {
+      background-color: #d4ac0d;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1.2rem;
+      }
+
+      .close-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 1.2rem;
+        top: 15px;
+        right: 15px;
+      }
     }
   </style>
 </head>
 <body>
+  <header class="top-bar">
+  <img src="mddi-logo.png" alt="MDDI logo" class="logo" />
+</header>
+  
   <h1>PQ Pal</h1>
   <p>Your digital guide to PQ procedures</p>
+
+  <img src="broadtimeline.png" alt="Broad Timeline" class="zoom-image" onclick="openImage()" />
+
+  <div class="overlay" id="imageOverlay">
+    <button class="close-btn" onclick="closeImage()">×</button>
+    <img src="broadtimeline.png" alt="Broad Timeline Enlarged" />
+  </div>
+
+  <script>
+    function openImage() {
+      const overlay = document.getElementById("imageOverlay");
+      overlay.classList.add("show");
+    }
+
+    function closeImage() {
+      const overlay = document.getElementById("imageOverlay");
+      overlay.classList.remove("show");
+    }
+
+    // Keyboard support: Close overlay on Escape key
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") {
+        closeImage();
+      }
+    });
+  </script>
 </body>
 </html>
